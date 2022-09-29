@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { InputControl, TextAreaControl } from './FormControl';
+import { InputControl, SelectControl, TextAreaControl } from './FormControl';
 
 test('Input Control', async () => {
   render(
@@ -33,4 +33,19 @@ test('Text Area Control', async () => {
   expect(textAreaControl.placeholder).toBe('tell us more');
 });
 
-
+test('Select Control', async () => {
+  render(
+    <SelectControl label="color" name="color" required>
+      <option>Blue</option>
+      <option>Yellow</option>
+      <option>Pink</option>
+      <option>Purple</option>
+      <option>Green</option>
+    </SelectControl>
+  );
+  
+  const selectControl = screen.getByLabelText('color');
+  expect(selectControl.name).toBe('color');
+  expect(selectControl.required).toBe(true);
+  expect(selectControl.options.length).toBe(5);
+});
