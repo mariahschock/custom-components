@@ -1,5 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import { InputControl, SelectControl, TextAreaControl } from './FormControl';
+import { 
+  CheckboxControl, 
+  InputControl, 
+  SelectControl, 
+  TextAreaControl } from './FormControl';
 
 test('Input Control', async () => {
   render(
@@ -48,4 +52,19 @@ test('Select Control', async () => {
   expect(selectControl.name).toBe('color');
   expect(selectControl.required).toBe(true);
   expect(selectControl.options.length).toBe(5);
+});
+
+test('Checkbox Control', async () => {
+  render(
+    <CheckboxControl
+      legend="Agreed?"
+      label="yes"
+      required
+    />
+  );
+
+  const legend = screen.getByText('Agreed?');
+  expect(legend).not.toBeNull();
+  const checkboxControl = screen.getByLabelText('yes');
+  expect(checkboxControl.required).toBe(true);
 });
