@@ -1,4 +1,5 @@
-import { InputControl, SelectControl, TextAreaControl } from '../FormControls/FormControl';
+import { CheckboxControl, InputControl, SelectControl, TextAreaControl } 
+  from '../FormControls/FormControl';
 import styles from './Home.css';
 
 export default function Home() {
@@ -27,6 +28,8 @@ export default function Home() {
         <option value="purple">Purple</option>
         <option value="green">Green</option>
       </SelectControl>
+
+      <CheckboxControl legend="Agreed?" label="yes" />
     </form>
   </div>;
 }
