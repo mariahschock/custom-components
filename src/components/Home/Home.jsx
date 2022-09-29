@@ -1,5 +1,10 @@
-import { CheckboxControl, InputControl, SelectControl, TextAreaControl } 
-  from '../FormControls/FormControl';
+import { 
+  CheckboxControl, 
+  FormButton, 
+  InputControl, 
+  SelectControl, 
+  TextAreaControl } from '../FormControls/FormControl';
+    
 import styles from './Home.css';
 
 export default function Home() {
@@ -30,6 +35,8 @@ export default function Home() {
       </SelectControl>
 
       <CheckboxControl legend="Agreed?" label="yes" />
+
+      <FormButton text="Submit" />
     </form>
   </div>;
 }
