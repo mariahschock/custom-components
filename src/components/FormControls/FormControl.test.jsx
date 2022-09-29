@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { 
   CheckboxControl, 
+  FormButton, 
   InputControl, 
   SelectControl, 
   TextAreaControl } from './FormControl';
@@ -67,4 +68,11 @@ test('Checkbox Control', async () => {
   expect(legend).not.toBeNull();
   const checkboxControl = screen.getByLabelText('yes');
   expect(checkboxControl.required).toBe(true);
+});
+
+test('Submit Button', async () => {
+  render(<FormButton text="Submit" />);
+
+  const button = screen.getByRole('button');
+  expect(button.textContent).toBe('Submit');
 });
