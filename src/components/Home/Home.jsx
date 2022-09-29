@@ -1,4 +1,4 @@
-import { InputControl } from '../FormControls/FormControl';
+import { InputControl, SelectControl, TextAreaControl } from '../FormControls/FormControl';
 import styles from './Home.css';
 
 export default function Home() {
@@ -9,6 +9,24 @@ export default function Home() {
         name="name"
         placeholder="your name"
       />
+
+      <TextAreaControl
+        label="Who are you?"
+        name="bio"
+        placeholder="tell us more"
+      />
+
+      <SelectControl
+        label="color"
+        required
+        name="color"
+        placeholder="Favorite color?">
+        <option value="blue">Blue</option>
+        <option value="yellow">Yellow</option>
+        <option value="pink">Pink</option>
+        <option value="purple">Purple</option>
+        <option value="green">Green</option>
+      </SelectControl>
     </form>
   </div>;
 }
