@@ -1,4 +1,5 @@
 import { FormButton, InputControl } from '../FormControls/FormControl';
+import useSearchForm from '../../hooks/use-search-form';
 
 
 export default function SearchForm({ onSubmit }) {
@@ -16,6 +17,6 @@ export default function SearchForm({ onSubmit }) {
       value={pokemon}
       onChange={e => setPokemon(e.target.value)}
     />
-    <FormButton type="submit">S earch </FormButton>
+    <FormButton type="submit"> Search </FormButton>
   </form>;
 }

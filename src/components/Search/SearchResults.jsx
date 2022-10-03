@@ -1,4 +1,4 @@
-import SearchResultCard from './SearchResultCard';
+import SearchResultCard from './SearchResultCard.jsx';
 
 export default function SearchResults({ results, infiniteScrollRef }) {
   return <ul>
