@@ -28,10 +28,12 @@ export default function useSearchResults() {
       searchObj.page = 1;
     }
     setSearchParams(searchObj);
-    
-    const body = await search(searchObj);
-    setSearchResults(body.results);
-   
+    try {
+      const body = await search(searchObj);
+      setSearchResults(body.results);
+    } catch (e) {
+      setError('Error searching pokedex ' + e.body.toString());
+    }
   };
   useEffect(() => void searchPokedex(usableSearchParams), []);
 
