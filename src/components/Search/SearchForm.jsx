@@ -1,22 +1,28 @@
-import { FormButton, InputControl } from '../FormControls/FormControl';
-import useSearchForm from '../../hooks/use-search-form';
-
-
-export default function SearchForm({ onSubmit }) {
-  const { pokemon, setPokemon, searchForm, setSearchForm } = useSearchForm();
-  const formSubmit = (e) => {
+import useSearch from '../../hooks/use-search.js';
+import { FormButton, InputControl } from '../FormControls/FormControl.jsx';
+export default function SearchForm({ onSubmit, type }) {
+  const { types } = useSearch();
+  const submitHandler = (e) => {
     e.preventDefault();
-    const formData = new  FormData(e.target);
-    const formDataObject = Object.fromEntries(formData);
-    onSubmit(formDataObject);
+    const formData = new FormData(e.target);
+    onSubmit(formData);
+    const params = new URLSearchParams(location.search);
+    Array.from(formData.entries()).forEach(([k, v]) => {
+      params.set(k, v);
+    });
+    window.history.replaceState(
+      {},
+      '',
+      `${location.pathname}?${params.toString()}`,
+    );
+
   };
-  return <form onSubmit={formSubmit}>
-    <InputControl
-      type="text"
-      name="pokemon"
-      value={pokemon}
-      onChange={e => setPokemon(e.target.value)}
-    />
-    <FormButton type="submit"> Search </FormButton>
+  return <form onSubmit={submitHandler}>
+    <InputControl label="Select Type" name="type" value={type}>
+      {types.map(type => {
+        return <option key={type} value={type}>{type}</option>;
+      })}
+    </InputControl>
+    <FormButton type="submit">Search</FormButton>
   </form>;
 }
