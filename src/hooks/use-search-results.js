@@ -32,7 +32,7 @@ export default function useSearchResults() {
       const body = await search(searchObj);
       setSearchResults(body.results);
     } catch (e) {
-      setError('Error searching pokedex ' + e.body.toString());
+      setError('Error searching pokedex ');
     }
   };
   useEffect(() => void searchPokedex(usableSearchParams), []);
