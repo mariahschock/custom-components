@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 
 export default function useSearchResults() {
   const [searchResults, setSearchResults] = useState([]);
-  const [error, setError] = useState('');
+  const [setError] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
   const usableSearchParams = Object.fromEntries(searchParams.entries());
 

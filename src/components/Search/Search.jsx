@@ -10,7 +10,6 @@ export default function Search() {
     nextPage,
     pokemon,
     setPokemon,
-    searchParams,
     searchResults,
     searchPokedex,
   } = useSearchResults();

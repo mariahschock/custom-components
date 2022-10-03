@@ -3,6 +3,23 @@
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
 
+.SearchResults h1 {
+    font-size: 1rem;
+    font-weight: 600;
+}
 .SearchResultCard {
-    display: grid;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    background-color: rgba(173, 216, 230, 0.384);
+    border-radius: 5px;
+    padding: var(--padding);
+}
+
+.SearchResultCard img {
+    width: 100px;
+    margin: 10px;
 }
